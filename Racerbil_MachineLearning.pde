@@ -1,4 +1,4 @@
-int generationCycle = 30;
+int generationCycle = 2;
 int lastReset = 0;
 
 GeneticAlgorithm algorithm;
@@ -13,6 +13,7 @@ void setup() {
 }
 
 void draw() {
+  background(255);
   //New generation
   if(millis() >= lastReset + generationCycle * 1000) {
     algorithm.addGeneration();

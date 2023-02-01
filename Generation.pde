@@ -18,9 +18,18 @@ class Generation {
         Car car1 = oldCars.get(int(random(top)));
         Car car2 = oldCars.get(int(random(top)));
         //Combine cars
-        
+        char[] chars = (car1.DNA.substring(0,6) + car2.DNA.substring(6,11)).toCharArray();
+        for(int c = 0; c < chars.length; c++) {
+          if(random(1) <= 0.05) {
+            int value = int(chars[c]) + int(random(-2,2));
+            if(value < 0) value = 9;
+            if(value > 9) value = 0;
+            chars[c] = str(value).charAt(0);
+          }
+        }
+        String newDNA = String.valueOf(chars);
         //Create new car
-        cars.add(new Car());
+        cars.add(new Car(newDNA));
     }
   }
   
