@@ -9,7 +9,7 @@ void setup() {
   algorithm = new GeneticAlgorithm();
   algorithm.addGeneration();
   lastReset = millis();
-  currentGeneration = algorithm.generations.last();
+  currentGeneration = algorithm.generations.get(algorithm.generations.size() - 1);
 }
 
 void draw() {
@@ -17,7 +17,7 @@ void draw() {
   if(millis() >= lastReset + generationCycle * 1000) {
     algorithm.addGeneration();
     lastReset = millis();
-    currentGeneration = algorithm.generations.last();
+    currentGeneration = algorithm.generations.get(algorithm.generations.size() - 1);
   }
   
   //Update current generation

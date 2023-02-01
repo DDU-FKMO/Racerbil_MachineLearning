@@ -1,6 +1,7 @@
 class Car {
     PVector pos = new PVector(0,0);
     PVector vel = new PVector(0,10);
+    int value = 0;
   
     void turnCar(float turnAngle) {
       vel.rotate(turnAngle);
@@ -13,6 +14,15 @@ class Car {
     }
   
     void update() {
+      //Check sensors
+      
+      //NeuralNetwork
+      
+      //Turn car
+      
+      //Move
       pos.add(vel);
+      //Display
+      displayCar();
     }
 }
