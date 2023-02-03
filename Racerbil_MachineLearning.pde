@@ -1,4 +1,4 @@
-int generationCycle = 2;
+int generationCycle = 20;
 int lastReset = 0;
 
 GeneticAlgorithm algorithm;
