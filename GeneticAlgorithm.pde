@@ -1,5 +1,5 @@
 class GeneticAlgorithm {
-  int populationSize = 10;
+  int populationSize = 100;
   int topCars = 10;
   public ArrayList<Generation> generations = new ArrayList<Generation>();
   
