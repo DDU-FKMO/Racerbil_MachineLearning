@@ -6,7 +6,7 @@ class NeuralNetwork {
     char[] chars = DNA.toCharArray();
     for(int c = 0; c < chars.length; c++) {
       int v = int(str(chars[c]));
-      if(v >= 5) v -= 10;
+      if(v >= 5) v -= 9;
 
       if(c < 8) {
         Weights[c] = v;

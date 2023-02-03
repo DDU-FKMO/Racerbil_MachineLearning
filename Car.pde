@@ -1,6 +1,6 @@
 class Car {
-  PVector pos = new PVector(100, 100);
-  PVector vel = new PVector(0, 5);
+  PVector pos = new PVector(225, 175);
+  PVector vel = new PVector(-3, 4);
   int value = 0;
   String DNA;
   int startTime = millis();

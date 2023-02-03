@@ -42,13 +42,13 @@ class SensorSystem {
       }
       
       //Check if car crossed checkpoint
-      if (carPositionColor != -1 && blue(carPositionColor) > green(carPositionColor) && green(carPositionColor) < 100) {
+      if (carPositionColor != -1 && blue(carPositionColor) > green(carPositionColor) && green(carPositionColor) < 100 && blue(carPositionColor) > 50) {
         crossedBlue = true;
         
       }
       
       //Check if car is on finish line
-      if (carPositionColor != -1 && green(carPositionColor) > blue(carPositionColor)  && blue(carPositionColor) < 100 && crossedBlue) {
+      if (carPositionColor != -1 && green(carPositionColor) > blue(carPositionColor)  && blue(carPositionColor) < 100 && green(carPositionColor) > 50 && crossedBlue) {
         crossedGreen = true;
       }
       
