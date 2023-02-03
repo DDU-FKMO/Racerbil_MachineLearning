@@ -14,7 +14,7 @@ class SensorSystem {
     boolean lapComplete = false;
     
     int startTime = millis();
-    int finishFrameTime;
+    int finishTime;
     
     void updateSensorPosition(PVector vel) {
       //Update position of front sensor with velocity
@@ -48,11 +48,11 @@ class SensorSystem {
       
       //Lap time calculation
       if (lapComplete) {
-        finishFrameTime = millis() - startTime;
+        finishTime = millis() - startTime;
       }
       
-      //Delete stranded car
-      if (outOfBounds && frontSensorSignal && leftSensorSignal && rightSensorSignal) {
+      //Penalize being outside
+      if (outOfBounds) {
         
       }
       
