@@ -60,6 +60,38 @@ class SensorSystem {
     }
     
     void displaySensors(PVector pos) {
+      //Draw front sensor
+      if (frontSensorSignal) {
+        fill(255, 0, 0);
+      } else {
+        fill(100);
+      }
+      ellipse(pos.x + sensorVectorFront.x, pos.y + sensorVectorFront.y, 10, 10);
+      //Draw left sensor
+      if (leftSensorSignal) {
+        fill(255, 0, 0);
+      } else {
+        fill(100);
+      }
+      ellipse(pos.x + sensorVectorLeft.x, pos.y + sensorVectorLeft.y, 10, 10);
+      //Draw right sensor
+      if (rightSensorSignal) {
+        fill(255, 0, 0);
+      } else {
+        fill(100);
+      }
+      ellipse(pos.x + sensorVectorRight.x, pos.y + sensorVectorRight.y, 10, 10);
       
+      //Draw connecting lines
+      fill(100);
+      line(pos.x, pos.y, pos.x + sensorVectorFront.x, pos.y + sensorVectorFront.y);
+      line(pos.x, pos.y, pos.x + sensorVectorLeft.x, pos.y + sensorVectorLeft.y);
+      line(pos.x, pos.y, pos.x + sensorVectorRight.x, pos.y + sensorVectorRight.y);
+      
+      //Draw stranded car
+      if (outOfBounds && frontSensorSignal && leftSensorSignal && rightSensorSignal) {
+        fill(255, 0, 0);
+        ellipse(pos.x, pos.y, 10, 10);
+      }
     }
 }
