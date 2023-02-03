@@ -6,7 +6,7 @@ Generation currentGeneration;
 PImage trackImage;
 
 void setup() {
-  size(750, 750);
+  size(1000, 1000);
   algorithm = new GeneticAlgorithm();
   algorithm.addGeneration();
   lastReset = millis();

@@ -33,6 +33,8 @@ class Car {
     stroke(100);
     fill(100);
     ellipse(pos.x, pos.y, 10, 10);
+    textSize(15);
+    //text("V: " + value, pos.x, pos.y - 30);
   }
 
   void updateScore() {
@@ -44,7 +46,7 @@ class Car {
       value += 1000 - (finishTime - startTime)/300;
       sensors.nextLineBlue = false;
     }
-    if (sensors.crossedGreen) {
+    if (sensors.crossedGreen && !sensors.nextLineBlue) {
       finishTime = millis();
       value += 3000 - (finishTime - startTime)/300;
       sensors.crossedBlue = false;
