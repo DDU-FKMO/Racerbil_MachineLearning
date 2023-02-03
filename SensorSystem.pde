@@ -1,5 +1,5 @@
 class SensorSystem {
-    float sensorMag = 100;
+    float sensorMag = 50;
     float sensorAngle = PI*2/8;
     
     PVector sensorVectorFront = new PVector(0, sensorMag);

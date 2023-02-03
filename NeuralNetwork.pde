@@ -5,8 +5,9 @@ class NeuralNetwork {
     Bias = new int[3];
     char[] chars = DNA.toCharArray();
     for(int c = 0; c < chars.length; c++) {
-      int v = int(chars[c]);
-      if(v >= 5) v = 10 - v;
+      int v = int(str(chars[c]));
+      if(v >= 5) v -= 10;
+
       if(c < 8) {
         Weights[c] = v;
       } else {

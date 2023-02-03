@@ -1,5 +1,5 @@
 class Car {
-  PVector pos;
+  PVector pos = new PVector(100, 100);
   PVector vel = new PVector(0, 5);
   int value = 0;
   String DNA;
@@ -11,7 +11,6 @@ class Car {
   Car(String dna) {
     DNA = dna;
     neuralNetwork = new NeuralNetwork(DNA);
-    pos = new PVector(width / 2, height / 2);
   }
 
   Car() {
@@ -20,7 +19,6 @@ class Car {
       DNA += str(int(random(9)));
     }
     neuralNetwork = new NeuralNetwork(DNA);
-    pos = new PVector(width / 2, height / 2);
   }
 
   void turnCar(float turnAngle) {
@@ -39,7 +37,7 @@ class Car {
     //NeuralNetwork
     float output = neuralNetwork.GetOutput(sensors.leftSensorSignal, sensors.rightSensorSignal, sensors.frontSensorSignal);
     //Turn car
-    turnCar(output / 100000);
+    turnCar(output / 100);
     //Move car
     pos.add(vel);
     //Display car
