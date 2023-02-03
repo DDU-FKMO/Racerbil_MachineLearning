@@ -4,13 +4,14 @@ class Car {
   int value = 0;
   String DNA;
   //SensorSystem
-  SensorSystem sensors = new SensorSystem();
+  SensorSystem sensors;
   //NeuralNetwork
   NeuralNetwork neuralNetwork;
 
   Car(String dna) {
     DNA = dna;
     neuralNetwork = new NeuralNetwork(DNA);
+    sensors = new SensorSystem();
   }
 
   Car() {
@@ -19,6 +20,7 @@ class Car {
       DNA += str(int(random(9)));
     }
     neuralNetwork = new NeuralNetwork(DNA);
+    sensors = new SensorSystem();
   }
 
   void turnCar(float turnAngle) {
