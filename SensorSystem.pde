@@ -11,10 +11,9 @@ class SensorSystem {
     boolean rightSensorSignal = false;
     
     boolean outOfBounds = false;
-    boolean lapComplete = false;
-    
-    int startTime = millis();
-    int finishTime;
+    boolean nextLineBlue = true;
+    boolean crossedBlue = false;
+    boolean crossedGreen = false;
     
     void updateSensorPosition(PVector vel) {
       //Update position of front sensor with velocity
@@ -41,19 +40,16 @@ class SensorSystem {
       if (carPositionColor == -1) {
         outOfBounds = true;
       }
-      //Check if car is on finish line
-      if (carPositionColor != -1 && green(carPositionColor) != 0) {
-        lapComplete = true;
-      }
       
-      //Lap time calculation
-      if (lapComplete) {
-        finishTime = millis() - startTime;
-      }
-      
-      //Penalize being outside
-      if (outOfBounds) {
+      //Check if car crossed checkpoint
+      if (carPositionColor != -1 && blue(carPositionColor) > green(carPositionColor)) {
+        crossedBlue = true;
         
+      }
+      
+      //Check if car is on finish line
+      if (carPositionColor != -1 && green(carPositionColor) > blue(carPositionColor) && crossedBlue) {
+        crossedGreen = true;
       }
       
       updateSensorPosition(vel);

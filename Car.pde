@@ -3,6 +3,8 @@ class Car {
   PVector vel = new PVector(0, 5);
   int value = 0;
   String DNA;
+  int startTime = millis();
+  int finishTime;
   //SensorSystem
   SensorSystem sensors;
   //NeuralNetwork
@@ -33,9 +35,29 @@ class Car {
     ellipse(pos.x, pos.y, 10, 10);
   }
 
+  void updateScore() {
+    if (sensors.outOfBounds) {
+      value -= 1;
+    }
+    if (sensors.crossedBlue && sensors.nextLineBlue) {
+      finishTime = millis();
+      value += 1000 - (finishTime - startTime)/300;
+      sensors.nextLineBlue = false;
+    }
+    if (sensors.crossedGreen) {
+      finishTime = millis();
+      value += 3000 - (finishTime - startTime)/300;
+      sensors.crossedBlue = false;
+      sensors.crossedGreen = false;
+      sensors.nextLineBlue = true;
+    }
+  }
+
   void update() {
     //Check sensors
     sensors.updateSensors(pos, vel);
+    //Update score
+    updateScore();
     //NeuralNetwork
     float output = neuralNetwork.GetOutput(sensors.leftSensorSignal, sensors.rightSensorSignal, sensors.frontSensorSignal);
     //Turn car
