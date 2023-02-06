@@ -3,7 +3,7 @@ class Car {
   PVector vel = new PVector(-3, 4);
   int value = 0;
   String DNA;
-  int startTime = millis();
+  int startTime = frameCount;
   int finishTime;
   //SensorSystem
   SensorSystem sensors;
@@ -35,6 +35,7 @@ class Car {
     ellipse(pos.x, pos.y, 10, 10);
     textSize(15);
     //text("V: " + value, pos.x, pos.y - 30);
+    sensors.displaySensors(pos);
   }
 
   void updateScore() {
@@ -42,13 +43,13 @@ class Car {
       value -= 1;
     }
     if (sensors.crossedBlue && sensors.nextLineBlue) {
-      finishTime = millis();
-      value += 1000 - (finishTime - startTime)/300;
+      finishTime = frameCount;
+      value += 1000 - (finishTime - startTime) / 10;
       sensors.nextLineBlue = false;
     }
     if (sensors.crossedGreen && !sensors.nextLineBlue) {
-      finishTime = millis();
-      value += 3000 - (finishTime - startTime)/300;
+      finishTime = frameCount;
+      value += 3000 - (finishTime - startTime) / 10;
       sensors.crossedBlue = false;
       sensors.crossedGreen = false;
       sensors.nextLineBlue = true;
@@ -66,8 +67,5 @@ class Car {
     turnCar(output / 100);
     //Move car
     pos.add(vel);
-    //Display car
-    displayCar();
-    sensors.displaySensors(pos);
   }
 }

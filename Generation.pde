@@ -14,6 +14,10 @@ class Generation {
   Generation(Generation lastGeneration, int top) {
     ArrayList<Car> oldCars = lastGeneration.cars;
     oldCars.sort(new CarComparator());
+    if(oldCars.get(0).value >= bestValue) {
+        bestValue = oldCars.get(0).value;
+        bestGeneration = algorithm.generations.size();
+    }
     for(Car car : oldCars) {
      print(car.value + ";");
     }
