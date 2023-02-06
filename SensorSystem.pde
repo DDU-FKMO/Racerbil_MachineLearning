@@ -46,7 +46,7 @@ class SensorSystem {
       //Check if car crossed checkpoint rgb(0,162,232)
       if (carPositionColor != -1 && red(carPositionColor) == 0 && green(carPositionColor) == 162 && blue(carPositionColor) == 232) {
         crossedBlue = true;
-        
+        crossedGreen = false;
       }
       
       //Check if car is on finish line rgb(34,177,76)
