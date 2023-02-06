@@ -39,6 +39,8 @@ class SensorSystem {
       //Check if car out of bounds
       if (carPositionColor == -1) {
         outOfBounds = true;
+      } else {
+        outOfBounds = false;
       }
       
       //Check if car crossed checkpoint
@@ -85,8 +87,18 @@ class SensorSystem {
       line(pos.x, pos.y, pos.x + sensorVectorRight.x, pos.y + sensorVectorRight.y);
       
       //Draw stranded car
-      if (outOfBounds && frontSensorSignal && leftSensorSignal && rightSensorSignal) {
+      if (outOfBounds) {
         fill(255, 0, 0);
+        ellipse(pos.x, pos.y, 10, 10);
+      }
+      
+      if (crossedBlue) {
+        fill(0, 0, 255);
+        ellipse(pos.x, pos.y, 10, 10);
+      }
+      
+      if (crossedGreen) {
+        fill(0, 255, 0);
         ellipse(pos.x, pos.y, 10, 10);
       }
     }
