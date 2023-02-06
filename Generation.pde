@@ -1,6 +1,3 @@
-import java.util.Collections; 
-import java.util.Comparator; 
-
 class Generation {
   ArrayList<Car> cars = new ArrayList<Car>();
   
@@ -12,19 +9,17 @@ class Generation {
   }
   
   Generation(Generation lastGeneration, int top) {
-    ArrayList<Car> oldCars = lastGeneration.cars;
-    oldCars.sort(new CarComparator());
-    if(oldCars.get(0).value >= bestValue) {
-        bestValue = oldCars.get(0).value;
+    if(lastGeneration.cars.get(0).value >= bestValue) {
+        bestValue = lastGeneration.cars.get(0).value;
         bestGeneration = algorithm.generations.size();
     }
-    for(Car car : oldCars) {
-     print(car.value + ";");
+    for(Car car : lastGeneration.cars) {
+     //print(car.value + ";");
     }
-    println();
+    //println();
     for(int i = 0; i < lastGeneration.cars.size(); i++) {
-        Car car1 = oldCars.get(int(random(top)));
-        Car car2 = oldCars.get(int(random(top)));
+        Car car1 = lastGeneration.cars.get(int(random(top)));
+        Car car2 = lastGeneration.cars.get(int(random(top)));
         //Combine cars
         char[] chars = (car1.DNA.substring(0,6) + car2.DNA.substring(6,11)).toCharArray();
         for(int c = 0; c < chars.length; c++) {
