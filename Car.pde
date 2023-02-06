@@ -51,7 +51,6 @@ class Car {
       finishTime = frameCount;
       value += 3000 - (finishTime - startTime) / 10;
       sensors.crossedBlue = false;
-      sensors.crossedGreen = false;
       sensors.nextLineBlue = true;
     }
   }
