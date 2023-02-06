@@ -1,5 +1,5 @@
 class Car {
-  PVector pos = new PVector(225, 175);
+  PVector pos = new PVector(150, 100);
   PVector vel = new PVector(-3, 4);
   int value = 0;
   String DNA;
@@ -34,7 +34,7 @@ class Car {
     fill(100);
     ellipse(pos.x, pos.y, 10, 10);
     textSize(15);
-    //text("V: " + value, pos.x, pos.y - 30);
+    text("V: " + value, pos.x, pos.y - 30);
     sensors.displaySensors(pos);
   }
 
