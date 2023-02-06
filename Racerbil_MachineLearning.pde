@@ -1,4 +1,4 @@
-int generationCycle = 40;
+int generationCycle = 25;
 int lastReset = 0;
 
 GeneticAlgorithm algorithm;
@@ -11,7 +11,7 @@ void setup() {
   algorithm.addGeneration();
   lastReset = millis();
   currentGeneration = algorithm.generations.get(algorithm.generations.size() - 1);
-  trackImage = loadImage("track.png");
+  trackImage = loadImage("track04.png");
 }
 
 void draw() {
@@ -22,6 +22,7 @@ void draw() {
   if(millis() >= lastReset + generationCycle * 1000) {
     algorithm.addGeneration();
     lastReset = millis();
+    trackImage = loadImage("track0"+ int(random(1,6)) + ".png");
     currentGeneration = algorithm.generations.get(algorithm.generations.size() - 1);
   }
   

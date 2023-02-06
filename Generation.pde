@@ -24,7 +24,7 @@ class Generation {
         //Combine cars
         char[] chars = (car1.DNA.substring(0,6) + car2.DNA.substring(6,11)).toCharArray();
         for(int c = 0; c < chars.length; c++) {
-          if(random(1) <= 0.02) {
+          if(random(1) <= 0.05) {
             int value = int(chars[c]) + int(random(-1,1));
             if(value < 0) value = 9;
             if(value > 9) value = 0;
