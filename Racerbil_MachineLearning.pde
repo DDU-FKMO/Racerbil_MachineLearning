@@ -45,6 +45,8 @@ void draw() {
     //Update current generation
     for(Car car :  currentGeneration.cars) {
       car.update();
+    }
+    for(Car car :  currentGeneration.cars) {
       car.displayCar();
     }
   }

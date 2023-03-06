@@ -30,9 +30,9 @@ class SensorSystem {
     
     void updateSensors(PVector pos, PVector vel) {
       //Sensor detection
-      frontSensorSignal = get(int(pos.x + sensorVectorFront.x), int(pos.y + sensorVectorFront.y)) == -1 ? true: false;
-      leftSensorSignal = get(int(pos.x + sensorVectorLeft.x), int(pos.y + sensorVectorLeft.y)) == -1 ? true: false;
-      rightSensorSignal = get(int(pos.x + sensorVectorRight.x), int(pos.y + sensorVectorRight.y)) == -1 ? true: false;
+      frontSensorSignal = get(int(pos.x + sensorVectorFront.x), int(pos.y + sensorVectorFront.y)) == -1;
+      leftSensorSignal = get(int(pos.x + sensorVectorLeft.x), int(pos.y + sensorVectorLeft.y)) == -1;
+      rightSensorSignal = get(int(pos.x + sensorVectorRight.x), int(pos.y + sensorVectorRight.y)) == -1;
       
       //Car detection
       color carPositionColor = get(int(pos.x), int(pos.y));
